@@ -57,7 +57,7 @@ Only `false` and `nil` are falsy, all others are truthy.
 ; => 10
 ```
 
-Destructuring is working the same way as in the [functions](./functions#destructuring).
+Destructuring is working the same way as in the [functions](./functions.md#destructuring).
 
 ```clojure
 (let [[head & tail] [1 2 3 4]]
