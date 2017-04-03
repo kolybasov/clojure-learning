@@ -47,6 +47,45 @@ Only `false` and `nil` are falsy, all others are truthy.
   (operationN))
 ```
 
+### let
+
+```clojure
+; (let [var value]
+;   var)
+(let [x 10]
+  x)
+; => 10
+```
+
+Destructuring is working the same way as in the [functions](./functions#destructuring).
+
+```clojure
+(let [[head & tail] [1 2 3 4]]
+  [head tail])
+; => [1 (2 3 4)]
+```
+
+### loop
+
+```clojure
+; (loop [var val]
+;   (body)
+;   (if (nil? var)
+;     (println "end")
+;     (recur nil))
+(loop [i 1]
+  (println (str "i: " i))
+  (if (> i 2)
+    (println "End")
+    (recur (inc i))))
+; =>
+; i: 0
+; i: 1
+; i: 2
+; i: 3
+; End
+```
+
 ## Data structures
 
 ### nil
@@ -116,6 +155,14 @@ Means no value.
 ; => #{1 2}
 ```
 
+### Regular expressions
+
+```clojure
+; #"^(\d|\s)"
+(clojure.string/replace "1key" #"^(\d|\s)" "")
+; => "key"
+```
+
 ## Common functions
 
 - `nil?` – check if value is `nil`
@@ -134,3 +181,4 @@ Means no value.
 - `hash-set` – create set
 - `set` – create set from `vector/list`
 - `contains?` – check if value is present in the set
+- `into` – insert seq into seq
